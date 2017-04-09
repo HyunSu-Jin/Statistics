@@ -3,6 +3,7 @@
 
 1.데이터 시각화
 - matplotlib
+
 ![img1](/img/img1.png)
 
 ![img2](/img/img2.png)
