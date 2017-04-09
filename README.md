@@ -43,3 +43,32 @@ def mode(x):
     #print(max_count)
     return [ key for key,count in counts.items() if count == max_count]
 </code></pre>
+
+
+3. 산포도, 분산, 표준편차
+
+- 산포도(dispersion)은 데이터가 얼마나 퍼져 있는지를 나타낸다. 데이터가 모두 같은값을 가진 경우와 데이터간 값의 차이가 큰 경우를 구분짓기 위함이다.
+<pre><code>
+def dispersion(vec):
+    return max(vec)- min(vec)
+</code></pre>
+이에 대한 예로써 위와같이 데이터셋의 maximum과 minimum간의 차이로 dispersion한 정도를 나타낼 수 있겠으나, 위에 대한 지표는 [0,100] 과 [0,100]에 50 이라는 값이 100개 추가된 vector간의 차이를 구분지을 수 없다. 이를 구분짓기 위하여 다음과 같이 분산, 표준편차를 이용한다.
+
+- 분산(variance)
+분산은 데이터셋에서 각 data에 평균값을 뺀뒤 제곱한값의 평균이다. 이 지표는 데이터셋이 얼마나 dispersion되어 있느냐를 해당 데이터의 단위제곱으로 나태낸다.
+<pre><code>
+def variance(vec):
+    vec=  np.array(vec)
+    vec = vec - mean(vec)
+    vec = vec ** 2
+    return np.sum(vec) / (vec.shape[0]-1)
+</code></pre>
+
+- 표준편차
+표준편차는 데이터셋의 각 데이터에 평균갑을 뺀값의 평균을 나타낸다. 이 값은 분산의 제곱근이다.
+
+분산과 표준편차는 평균값과 같이 Noise 데이터에 민감하게 변동되므로 다음과 같이 분위를 이용한 방법으로 dispersion 정도를 나타내기도 한다.
+<pre><code>
+def interquartile(vec):
+    return quantile(vec,0.75) - quantile(vec,0.25)
+</code></pre>
