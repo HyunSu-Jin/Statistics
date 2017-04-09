@@ -4,7 +4,8 @@
 1.데이터 시각화
 - matplotlib
 ![img1](/img/img1.png)
-![img2](/img/img2.ong)
+
+![img2](/img/img2.png)
 
 2. 평균(mean), 중앙값(median), 분위(quantile), 최빈값(mode)
 - 평균은 데이터가 나태는 값들의 전체 합을 데이터의 수로 나눈것을 의미한다.
